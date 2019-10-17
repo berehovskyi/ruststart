@@ -25,9 +25,18 @@ fn main() {
             _ => fibonacci(n - 1) + fibonacci(n - 2)
         }
     }
+    pub fn count_to(n :i64) -> i64 {
+        let mut sum :i64 = 0;
+        for i in 0..n {
+            sum += i * i + 2 * i;
+        }
+        return sum
+    }
     let start = Instant::now();
-    let result = fibonacci(50);
+//    let result = fibonacci(50);
+    let result = count_to(1_000_000_000);
     let duration = start.elapsed();
+    println!("{}", result < std::i32::MAX as i64);
     println!("{}", result);
     println!("{:?}", duration);
 }
